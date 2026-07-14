@@ -81,7 +81,7 @@ pipeline {
                       --network "$DOCKER_NETWORK" \
                       --restart unless-stopped \
                       -p 9090:8080 \
-                      -e DB_URL="jdbc:mysql://$DB_CONTAINER:3306/$DB_NAME?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC" \
+                      -e DB_URL="jdbc:mariadb://$DB_CONTAINER:3306/$DB_NAME" \
                       -e DB_USER="$DB_USER" \
                       -e DB_PASSWORD="$DB_PASSWORD" \
                       "$IMAGE_NAME"
